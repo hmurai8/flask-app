@@ -31,6 +31,7 @@ app.secret_key = b'SquidBrainsAresShapedLikeDonuts' # this is so we can use "ses
 
 
 def df_session_load(): # because we will do this often, just want a fast way to get it back to a df
+
     return url.path_to_dataframe(session['path'])
 
 
@@ -38,6 +39,8 @@ def update_data(form):
     """Update the dataframe"""
 
     session['path'] = form['fname']
+    # df = url.path_to_dataframe(session['path'])
+    # session['df'] = df.to_json()
     return
 
 
@@ -105,7 +108,6 @@ def plot(): # TODO add plot type and feature selection trhough callbacks
         fig = None
 
     return fig
-
 
 
 
